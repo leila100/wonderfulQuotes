@@ -27,7 +27,7 @@ export default {
         " Nothing will bring you peace, you must bring yourself to it.",
         "Never let success get to your head, and never let failure get to your heart.",
       ],
-      maxQuotes: 10,
+      maxQuotes: 4,
     };
   },
   components: {
@@ -37,6 +37,9 @@ export default {
   },
   methods: {
     addQuote(quote) {
+      if (this.quotes.length >= this.maxQuotes) {
+        return alert("You have reached the maximum. Please delete some quotes to add more.");
+      }
       this.quotes.push(quote);
     },
     deleteQuote(index) {
