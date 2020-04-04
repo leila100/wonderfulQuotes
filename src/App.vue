@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Wonderful Quotes</h1>
     <NewQuote @quoteAdded="addQuote" />
-    <QuoteGrid :quotes="quotes" />
+    <QuoteGrid :quotes="quotes" @quoteDeleted="deleteQuote" />
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="alert alert-info">
@@ -32,6 +32,9 @@ export default {
   methods: {
     addQuote(quote) {
       this.quotes.push(quote);
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1);
     },
   },
 };
