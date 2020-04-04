@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Wonderful Quotes</h1>
+    <Header :quoteCount="quotes.length" :maxQuotes="maxQuotes" />
     <NewQuote @quoteAdded="addQuote" />
     <QuoteGrid :quotes="quotes" @quoteDeleted="deleteQuote" />
     <div class="row">
@@ -16,18 +17,23 @@
 <script>
 import QuoteGrid from "./components/QuoteGrid.vue";
 import NewQuote from "./components/NewQuote.vue";
+import Header from "./components/Header.vue";
 
 export default {
   name: "App",
   data() {
     return {
-      quotes: ["Just a quote to see something"],
+      quotes: [
+        " Nothing will bring you peace, you must bring yourself to it.",
+        "Never let success get to your head, and never let failure get to your heart.",
+      ],
       maxQuotes: 10,
     };
   },
   components: {
     QuoteGrid,
     NewQuote,
+    Header,
   },
   methods: {
     addQuote(quote) {
